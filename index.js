@@ -1,3 +1,4 @@
+import { createNewDeck, drawCards } from "./deck";
 
 const playersCards = document.getElementById('playersCards');
 const dealersCards = document.getElementById('dealersCards');
@@ -15,3 +16,15 @@ let dealerCards = [];
 let gameStarted = false;
 
 
+async function startNewGame() {
+    playerCards = [];
+    dealerCards = [];
+    gameStarted = true;
+    message.textContent = ""
+
+    deck = await createNewDeck
+
+    let startingHand = await drawCards(deck , 4);
+    playerCards = [startingHand[0] , startingHand[1]];
+    dealerCards = [startingHand[2] , startingHand[3]];
+}
