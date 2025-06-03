@@ -1,4 +1,7 @@
-import { createNewDeck, drawCards } from "./deck";
+import { createNewDeck, drawCards } from "./deck.js";
+import { handValue, winner } from "./script.js";
+
+
 
 const playersCards = document.getElementById('playersCards');
 const dealersCards = document.getElementById('dealersCards');
@@ -28,3 +31,4 @@ async function startNewGame() {
     playerCards = [startingHand[0] , startingHand[1]];
     dealerCards = [startingHand[2] , startingHand[3]];
 }
+
