@@ -23,7 +23,7 @@ async function startNewGame() {
     playerCards = [];
     dealerCards = [];
     gameActive = true;
-    message.textContent = ""
+    message.textContent = "";
 
     deck = await createNewDeck();
 
