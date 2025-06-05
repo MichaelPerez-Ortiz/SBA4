@@ -8,7 +8,7 @@ const cpuCards = document.getElementById('cpuCards');
 const playerScore = document.getElementById('playerScore');
 const dealerScore = document.getElementById('dealerScore');
 const message = document.getElementById('message');
-const hitButton = document.getElementById('hit');
+const hitButton = document.getElementById('deck');
 const standButton = document.getElementById('stand');
 const newGameButton = document.getElementById('newGame');
 
@@ -35,6 +35,14 @@ async function startNewGame() {
 
 gameDisplay();
 enableActionButtons();
+
+let playerScore = handValue(playerCards);
+    if (playerScore === 21) {
+        gameActive = false;
+        gameDisplay();
+        await new Promise(resolve => setTimeout(resolve,500));
+        await stand();
+    }
 
 
 }
@@ -91,11 +99,11 @@ async function hit() {
     let [newCard] = await drawCards(deck , 1);
     playerCards.push(newCard);
 
-    let currentPlayerScore = handValue(playerCards);
+    let playerScore = handValue(playerCards);
     
     gameDisplay();
 
-    if (currentPlayerScore >= 21) {
+    if (playerScore >= 21) {
         gameActive = false;
         gameDisplay();
         await new Promise(resolve => setTimeout(resolve,500));
@@ -154,7 +162,6 @@ function disableActionButtons() {
 
 
 newGameButton.addEventListener("click" , startNewGame);
-// hitButton.addEventListener("click" , hit);
 
 hitButton.addEventListener("click" , () => {
     if(gameActive) {
