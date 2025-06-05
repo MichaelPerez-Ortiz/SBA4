@@ -7,7 +7,7 @@ export function handValue(cards) {
             aces += 1;
             value += 11;
 
-        } else if  (["KING" , "Queen" , "Jack"].includes(card.value)) {
+        } else if  (["KING" , "QUEEN" , "JACK"].includes(card.value)) {
             value += 10;
 
         } else {
@@ -33,5 +33,5 @@ export function winner(playerScore , dealerScore) {
         if (playerScore > dealerScore) return "You Win!";
         if (dealerScore > playerScore) return "Dealer Wins!";
         
-                    return "It's a tie!";
+                    return "Push!";
 }

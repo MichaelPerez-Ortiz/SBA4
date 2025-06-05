@@ -52,7 +52,7 @@ function gameDisplay() {
         });
 
         dealerCards.forEach((card , index) => {
-            let cards = createCard(card, !gameActive && index === 0 );
+            let cards = createCard(card, gameActive && index === 1 );
             cpuCards.appendChild(cards);
         });
 
@@ -85,14 +85,20 @@ function createCard(card , hidden = false) {
 }
 
 async function hit() {
+    if (!gameActive)
+        return;
+
     let [newCard] = await drawCards(deck , 1);
     playerCards.push(newCard);
 
-    let playerScore = handValue(playerCards);
+    let currentPlayerScore = handValue(playerCards);
     
     gameDisplay();
 
-    if (playerScore >= 21) {
+    if (currentPlayerScore >= 21) {
+        gameActive = false;
+        gameDisplay();
+        await new Promise(resolve => setTimeout(resolve,500));
         await stand();
 
     }
@@ -104,16 +110,21 @@ async function stand() {
     gameActive = false;
     disableActionButtons();
 
+    gameDisplay();
+    await new Promise(resolve => setTimeout(resolve,500));
+
     let dealerScore = handValue(dealerCards);
 
         while (dealerScore < 17) {
-            await new Promise(resolve => setTimeout(resolve , 1000));
+            await new Promise(resolve => setTimeout(resolve , 500));
             let [newCard] = await drawCards(deck , 1);
             dealerCards.push(newCard);
             dealerScore = handValue(dealerCards);
 
             gameDisplay();
     }
+
+    await new Promise(resolve => setTimeout(resolve,500));
 
         let playerScore = handValue(playerCards);
         let result = winner(playerScore , dealerScore);
@@ -143,7 +154,14 @@ function disableActionButtons() {
 
 
 newGameButton.addEventListener("click" , startNewGame);
-hitButton.addEventListener("click" , hit);
+// hitButton.addEventListener("click" , hit);
+
+hitButton.addEventListener("click" , () => {
+    if(gameActive) {
+        hit();
+    }
+});
+
 standButton.addEventListener("click" , stand);
 
 
