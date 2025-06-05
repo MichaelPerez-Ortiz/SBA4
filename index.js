@@ -24,6 +24,8 @@ async function startNewGame() {
     dealerCards = [];
     gameActive = true;
     message.textContent = "";
+    message.classList.remove("show");
+    message.classList.remove("settle");
 
     deck = await createNewDeck();
 
@@ -116,6 +118,14 @@ async function stand() {
         let playerScore = handValue(playerCards);
         let result = winner(playerScore , dealerScore);
         message.textContent = result;
+        message.classList.add("show");
+        
+
+        setTimeout(() => {
+
+            message.classList.remove("show");
+            message.classList.add("settle");
+        } ,2000);
     
 }
 

@@ -12,39 +12,45 @@
 
 <body>
 
-    <h1>BLackJack</h1>
+        <h1>BlackJack</h1>
 
-    <div id = "game-container">
+    <div id ="container">
 
-        <div id = "dealer">
-            <h2 id = "dHand"> Dealer's Hand </h2>
-            <div id = "cpuCards" class = "cards"></div>
-            <p> Dealer's Score: <span id = "dealerScore"> 0 </span></p>
-        </div>
+            <div id ="sideMenu">
+                <button id = "newGame"> New Game </button>
+            </div>
 
 
-        <div id = "player">
-            <h2 id = "pHand"> Your Hand </h2>
-            <div id = "yourCards" class = "cards"></div>
-            <p> Your Score: <span id = "playerScore"> 0 </span></p>
-        </div>
+            <div id = "game-container">
+
+                <div id = "dealer">
+                    <h2 id = "dHand"> Dealer's Hand </h2>
+                    <div id = "cpuCards" class = "cards"></div>
+                    <p> Dealer's Score: <span id = "dealerScore"> 0 </span></p>
+                </div>
+
+
+                <div id = "player">
+                    <h2 id = "pHand"> Your Hand </h2>
+                    <div id = "yourCards" class = "cards"></div>
+                    <p> Your Score: <span id = "playerScore"> 0 </span></p>
+                </div>
 
 
 
-        <div id = "controls">
-            <button id = "newGame"> New Game </button>
-            <button id = "hit"> Hit </button>
-            <button id = "stand"> STand </button>
-        </div>
+                <div id = "controls">
+                    <button id = "hit"> Hit </button>
+                    <button id = "stand"> Stand </button>
+                </div>
 
-        <div id="deckArea">
-            <img src="https://deckofcardsapi.com/static/img/back.png" alt="Deck">
-        </div>
-        
-        <div id = "message"></div>
+                <div id="deckArea">
+                    <img src="https://deckofcardsapi.com/static/img/back.png" alt="Deck">
+                </div>
+                
+                <div id = "message"></div>
 
 
+            </div>
     </div>
-    
 </body>
 </html>

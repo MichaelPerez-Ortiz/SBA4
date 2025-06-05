@@ -27,7 +27,7 @@ export function handValue(cards) {
 export function winner(playerScore , dealerScore) {
 
         if (playerScore > 21) return "Bust ! Dealer Wins!";
-        if (dealerScore > 21) return "You Win! Dealer busted!";
+        if (dealerScore > 21) return "You Win! Dealer busts!";
         if (playerScore === 21) return "21! You Win!";
         if (dealerScore === 21) return "21! Dealer Wins!";
         if (playerScore > dealerScore) return "You Win!";
