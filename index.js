@@ -17,9 +17,13 @@ let deck = null;
 let playerCards = [];
 let dealerCards = [];
 let gameActive = false;
+let dealerDraw = false;
 
 
 async function startNewGame() {
+    if (dealerDraw)
+        return;
+
     playerCards = [];
     dealerCards = [];
     gameActive = true;
@@ -116,6 +120,7 @@ async function hit() {
 
 async function stand() {
     gameActive = false;
+    dealerDraw = true;
     disableActionButtons();
 
     gameDisplay();
@@ -145,6 +150,8 @@ async function stand() {
             message.classList.remove("show");
             message.classList.add("settle");
         } ,2000);
+
+        dealerDraw = false;
     
 }
 

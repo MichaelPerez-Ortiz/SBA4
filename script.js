@@ -32,6 +32,6 @@ export function winner(playerScore , dealerScore) {
         if (dealerScore === 21) return "21! Dealer Wins!";
         if (playerScore > dealerScore) return "You Win!";
         if (dealerScore > playerScore) return "Dealer Wins!";
-        
+        if (playerScore === 21 && dealerScore ===21) return "Push!";
                     return "Push!";
 }

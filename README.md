@@ -18,6 +18,14 @@ In case you don't like clicking on the deck.
 
 Your turn automatically ends when you bust or get 21.
 
+
+
+-------------------------------------------------------//////////////////////////////////////////////----------------------------------------
+
+
+
+**Fixed**
+
 **Make sure to let the dealers turn end before clicking new game.**
 There is an issue where if you click new game while the dealer is drawing their cards the new game starts with the dealer having 3 cards and 
 the winner message for the game you are leaving shows up.
